@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=prompt("몇 단 부터 : ");
+        var b=prompt("몇 단 까지 : ");
+        var i=1,su
+        
+
+        while(i<10){
+            su=a;
+            while(su<=Number(b)){
+                 document.write(su+" x "+i+" = ");
+                 if((su*i)<10){
+                    document.write("&nbsp"+(su*i));
+                 }
+                 else{
+                    document.write((su*i));
+                 }
+                 document.write("&nbsp&nbsp&nbsp");
+                 su++;
+            }
+            document.write("<br>");
+            i++;
+        }
+
+    </script>
+</body>
+</html>
