@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .nemo{
+        background-color: #4e80ca;
+        width: 460px;
+        height: 60px;
+        color: #ffffff;
+        border-radius: 10px;
+        border: none;
+        font-size: 30px;
+    }
+    .nemo:hover{
+        background-color: #ac3131;
+        color: #ffffff;
+        border: none;
+    }
+    .bt{
+        background-color: #ac3131;
+        width: 30px;
+        height: 30px;
+        color: #ffffff;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+    }
+    .bt:hover{
+        background-color: #4e80ca;
+        color: #ffffff;
+        border: none;
+    }
+    .inputbox{
+        width: 40px;
+        height: 40px;
+        font-size: 35px;
+        text-align: center;
+        border: none;
+    }
+</style>
+<body>
+    
+    <table>
+        <tr><td colspan="4" align="center"><img src="domino.PNG"></td></tr>
+        <tr>
+            <td colspan="4"><marquee scrollamount=5>어서오세요~ 도미노 피자 키오스크 입니다~! 실제로 대만 콘 치즈 감자 S와 이탈리아 마르게리따 S는 없는 메뉴 입니다~!</marquee></td>
+        </tr>
+        <tr>
+            <td align="center"><img src="chcpizza.jpg" width="200" height="200"><br><br>
+                치즈 크래프트 샌드 L<br>가격 : 34,900원<br>
+                <button id = 'chcpizzaminus'class="bt">-</button><input type="text" id ='chcpizzaiput' class="inputbox"><button id="chcpizzaplus" class="bt">+</button></td>
+                <td align="center"><img src="abopizza.jpg" width="200" height="200"><br><br>
+                    아보카도 새우 L<br>가격 : 27,000원<br>
+                    <button id = 'abopizzaminus'class="bt">-</button><input type="text" id ='abopizzainput' class="inputbox"><button id="abopizzaplus"class="bt">+</button></td>
+                <td align="center"><img src="conpizza.jpg" width="200" height="200"><br><br>
+                        대만 콘 치즈 감자 L<br>가격 : 17,900원<br>
+                        <button id = 'conpizzaminus'class="bt">-</button><input type="text" id ='conpizzainput' class="inputbox"><button id="conpizzaplus"class="bt">+</button></td>
+                <td align="center"><img src="iterpizza.jpg" width="200" height="200"><br><br>
+                        이탈리아 마르게리따 L<br>가격 : 17,900원<br>
+                        <button id = 'iterpizzaminus'class="bt">-</button><input type="text" id ='iterpizzainput' class="inputbox"><button id="iterpizzaplus"class="bt">+</button></td>
+        </tr>
+        <tr>
+            <td align="center"><br>
+                치즈 크래프트 샌드 M<br>가격 : 29,900원<br>
+                <button id = 'chcpizzaminus2'class="bt">-</button><input type="text" id ='chcpizzaiput2' class="inputbox"><button id="chcpizzaplus2"class="bt">+</button></td>
+                <td align="center"><br>
+                    아보카도 새우 M<br>가격 : 20,500원<br>
+                    <button id = 'abopizzaminus2'class="bt">-</button><input type="text" id ='abopizzainput2' class="inputbox"><button id="abopizzaplus2"class="bt">+</button></td>
+                <td align="center"><br>
+                        대만 콘 치즈 감자 S<br>가격 : 8,000원<br>
+                        <button id = 'conpizzaminus2'class="bt">-</button><input type="text" id ='conpizzainput2' class="inputbox"><button id="conpizzaplus2"class="bt">+</button></td>
+                <td align="center"><br>
+                        이탈리아 마르게리따 S<br>가격 : 8,000원<br>
+                        <button id = 'iterpizzaminus2'class="bt">-</button><input type="text" id ='iterpizzainput2' class="inputbox"><button id="iterpizzaplus2"class="bt">+</button></td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center"><img src="fffff.PNG"></td>
+        </tr>
+        <tr>
+            <td align="center"><img src="wsppizza.jpg" width="200" height="200"><br><br>
+                와일드X2 웨스트 스테이크 L<br>가격 : 33,900원<br>
+                <button id = 'wsppizzaminus'class="bt">-</button><input type="text" id ='wsppizzainput' class="inputbox"><button id="wsppizzaplus"class="bt">+</button></td>
+            <td align="center"><img src="blcpizza.jpg" width="200" height="200"><br><br>
+                블랙타이거 슈림프 L<br>가격 : 36,900원<br>
+            <button id = 'blcpizzaminus'class="bt">-</button><input type="text" id ='blcpizzainput' class="inputbox"><button id="blcpizzaplus"class="bt">+</button></td>
+            <td align="center"><img src="blupizza.jpg" width="200" height="200"><br><br>
+                블록버스터4 L<br>가격 : 36,900원<br>
+                <button id = 'blupizzaminus'class="bt">-</button><input type="text" id ='blupizzainput' class="inputbox"><button id="blupizzaplus"class="bt">+</button></td>
+            <td align="center"><img src="bestpizza.jpg" width="200" height="200"><br><br>
+                베스트 콰트로 L<br>가격 : 36,900원<br>
+                <button id = 'bestpizzaminus'class="bt">-</button><input type="text" id ='bestpizzainput' class="inputbox"><button id="bestpizzaplus"class="bt">+</button></td>   
+        </tr>
+        <tr>
+            <td align="center"><br>
+                와일드X2 웨스트 스테이크 M<br>가격 : 28,000원<br>
+                <button id = 'wsppizzaminus2'class="bt">-</button><input type="text" id ='wsppizzainput2' class="inputbox"><button id="wsppizzaplus2"class="bt">+</button></td>
+            <td align="center"><br>
+                블랙타이거 슈림프 M<br>가격 : 30,000원<br>
+            <button id = 'blcpizzaminus2'class="bt">-</button><input type="text" id ='blcpizzainput2' class="inputbox"><button id="blcpizzaplus2"class="bt">+</button></td>
+            <td align="center"><br>
+                블록버스터4 M<br>가격 : 29,500원<br>
+                <button id = 'blupizzaminus2'class="bt">-</button><input type="text" id ='blupizzainput2' class="inputbox"><button id="blupizzaplus2"class="bt">+</button></td>
+            <td align="center"><br>
+                베스트 콰트로 M<br>가격 : 29,500원<br>
+                <button id = 'bestpizzaminus2'class="bt">-</button><input type="text" id ='bestpizzainput2' class="inputbox"><button id="bestpizzaplus2"class="bt">+</button></td>   
+        </tr>
+        <tr>
+            <td colspan="4" align="center"><img src="fffff.PNG"></td>
+        </tr>
+        <tr>
+            <td align="center"><img src="coke.jpg" width="200" height="200"><br><br>
+            코카콜라 1.25L<br>가격 : 2300원<br>
+            <button id = 'cokelminus'class="bt">-</button><input type="text" id ='cokelinput' class="inputbox"><button id="cokelplus"class="bt">+</button></td>
+            <td align="center"><img src="zerocoke.jpg" width="200" height="200"><br><br>
+            코카콜라 제로 1.25L<br>가격 : 2300원<br>
+            <button id = 'zerocokelminus'class="bt">-</button><input type="text" id ='zerocokelinput' class="inputbox"><button id="zerocokelplus"class="bt">+</button></td>
+            <td align="center"><img src="sprite.jpg" width="200" height="200"><br><br>
+            스프라이트 1.5L<br>가격 : 2400원<br>
+            <button id = 'spritelminus'class="bt">-</button><input type="text" id ='spritelinput' class="inputbox"><button id="spritelplus"class="bt">+</button></td>
+            <td align="center"><img src="pickle.jpg" width="200" height="200"><br><br>
+             우리 피클 L<br>가격 : 800원<br>
+            <button id = 'picklelminus'class="bt">-</button><input type="text" id ='picklelinput' class="inputbox"><button id="picklelplus"class="bt">+</button></td>
+        </tr>
+        <tr>
+            <td align="center"><br>
+            코카콜라 500ml<br>가격 : 1700원<br>
+            <button id = 'cokelminus2'class="bt">-</button><input type="text" id ='cokelinput2' class="inputbox"><button id="cokelplus2"class="bt">+</button></td> 
+             <td align="center"><br>
+            코카콜라 제로 500ml<br>가격 : 1700원<br>
+            <button id = 'zerocokelminus2'class="bt">-</button><input type="text" id ='zerocokelinput2' class="inputbox"><button id="zerocokelplus2"class="bt">+</button></td>
+            <td align="center"><br>
+            스프라이트 500ml<br>가격 : 1700원<br>
+            <button id = 'spritelminus2'class="bt">-</button><input type="text" id ='spritelinput2' class="inputbox"><button id="spritelplus2"class="bt">+</button></td>
+            <td align="center"><br>
+           우리 피클 M<br>가격 : 500원<br>
+            <button id = 'picklelminus2'class="bt">-</button><input type="text" id ='picklelinput2' class="inputbox"><button id="picklelplus2"class="bt">+</button></td>
+        </tr>
+       
+        <tr>
+            <td colspan="4" align="center"><img src="fffff.PNG"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><button id="btn_set_clear" class="nemo">초기화</button></td>
+            <td colspan="2" align="center"><button id="btn_total_commit" class="nemo">계산</button></td>
+        </tr>
+        
+    </table>
+    <script>
+
+        chcpizzaiput = document.getElementById("chcpizzaiput");
+        chcpizzaiput.value = 0;
+        document.getElementById("chcpizzaplus").addEventListener('click',on_chcpizzaplus);
+        document.getElementById("chcpizzaminus").addEventListener('click',on_chcpizzaminus);
+
+        abopizzainput = document.getElementById("abopizzainput");
+        abopizzainput.value = 0;
+        document.getElementById("abopizzaplus").addEventListener('click',on_abopizzaplus);
+        document.getElementById("abopizzaminus").addEventListener('click',on_abopizzaminus);
+
+        conpizzainput = document.getElementById("conpizzainput");
+        conpizzainput.value = 0;
+        document.getElementById("conpizzaplus").addEventListener('click',on_conpizzaplus);
+        document.getElementById("conpizzaminus").addEventListener('click',on_conpizzaminus);
+
+        iterpizzainput = document.getElementById("iterpizzainput");
+        iterpizzainput.value = 0;
+        document.getElementById("iterpizzaplus").addEventListener('click',on_iterpizzaplus);
+        document.getElementById("iterpizzaminus").addEventListener('click',on_iterpizzaminus);
+
+        wsppizzainput = document.getElementById("wsppizzainput");
+        wsppizzainput.value = 0;
+        document.getElementById("wsppizzaminus").addEventListener('click',on_wsppizzaminus);
+        document.getElementById("wsppizzaplus").addEventListener('click',on_wsppizzaplus);
+
+        blcpizzainput = document.getElementById("blcpizzainput");
+        blcpizzainput.value = 0;
+        document.getElementById("blcpizzaminus").addEventListener('click',on_blcpizzaminus);
+        document.getElementById("blcpizzaplus").addEventListener('click',on_blcpizzaplus);
+
+        blupizzainput = document.getElementById("blupizzainput");
+        blupizzainput.value = 0;
+        document.getElementById("blupizzaminus").addEventListener('click',on_blupizzaminus);
+        document.getElementById("blupizzaplus").addEventListener('click',on_blupizzaplus);
+
+        bestpizzainput = document.getElementById("bestpizzainput");
+        bestpizzainput.value = 0;
+        document.getElementById("bestpizzaminus").addEventListener('click',on_bestpizzaminus);
+        document.getElementById("bestpizzaplus").addEventListener('click',on_bestpizzaplus);
+
+
+
+        chcpizzaiput2 = document.getElementById("chcpizzaiput2");
+        chcpizzaiput2.value = 0;
+        document.getElementById("chcpizzaplus2").addEventListener('click',on_chcpizzaplus2);
+        document.getElementById("chcpizzaminus2").addEventListener('click',on_chcpizzaminus2);
+
+        abopizzainput2 = document.getElementById("abopizzainput2");
+        abopizzainput2.value = 0;
+        document.getElementById("abopizzaplus2").addEventListener('click',on_abopizzaplus2);
+        document.getElementById("abopizzaminus2").addEventListener('click',on_abopizzaminus2);
+
+        conpizzainput2 = document.getElementById("conpizzainput2");
+        conpizzainput2.value = 0;
+        document.getElementById("conpizzaplus2").addEventListener('click',on_conpizzaplus2);
+        document.getElementById("conpizzaminus2").addEventListener('click',on_conpizzaminus2);
+
+        iterpizzainput2 = document.getElementById("iterpizzainput2");
+        iterpizzainput2.value = 0;
+        document.getElementById("iterpizzaplus2").addEventListener('click',on_iterpizzaplus2);
+        document.getElementById("iterpizzaminus2").addEventListener('click',on_iterpizzaminus2);
+
+        wsppizzainput2 = document.getElementById("wsppizzainput2");
+        wsppizzainput2.value = 0;
+        document.getElementById("wsppizzaminus2").addEventListener('click',on_wsppizzaminus2);
+        document.getElementById("wsppizzaplus2").addEventListener('click',on_wsppizzaplus2);
+
+        blcpizzainput2 = document.getElementById("blcpizzainput2");
+        blcpizzainput2.value = 0;
+        document.getElementById("blcpizzaminus2").addEventListener('click',on_blcpizzaminus2);
+        document.getElementById("blcpizzaplus2").addEventListener('click',on_blcpizzaplus2);
+
+        blupizzainput2 = document.getElementById("blupizzainput2");
+        blupizzainput2.value = 0;
+        document.getElementById("blupizzaminus2").addEventListener('click',on_blupizzaminus2);
+        document.getElementById("blupizzaplus2").addEventListener('click',on_blupizzaplus2);
+
+        bestpizzainput2 = document.getElementById("bestpizzainput2");
+        bestpizzainput2.value = 0;
+        document.getElementById("bestpizzaminus2").addEventListener('click',on_bestpizzaminus2);
+        document.getElementById("bestpizzaplus2").addEventListener('click',on_bestpizzaplus2);
+
+
+        cokelinput = document.getElementById("cokelinput");
+        cokelinput.value = 0;
+        document.getElementById("cokelminus").addEventListener('click',on_cokelminus);
+        document.getElementById("cokelplus").addEventListener('click',on_cokelplus);
+
+        zerocokelinput = document.getElementById("zerocokelinput");
+        zerocokelinput.value = 0;
+        document.getElementById("zerocokelminus").addEventListener('click',on_zerocokelminus);
+        document.getElementById("zerocokelplus").addEventListener('click',on_zerocokelplus);
+
+
+        spritelinput = document.getElementById("spritelinput");
+        spritelinput.value = 0;
+        document.getElementById("spritelminus").addEventListener('click',on_spritelminus);
+        document.getElementById("spritelplus").addEventListener('click',on_spritelplus);
+
+        picklelinput = document.getElementById("picklelinput");
+        picklelinput.value = 0;
+        document.getElementById("picklelminus").addEventListener('click',on_picklelminus);
+        document.getElementById("picklelplus").addEventListener('click',on_picklelplus);
+
+
+     
+        cokelinput2 = document.getElementById("cokelinput2");
+        cokelinput2.value = 0;
+        document.getElementById("cokelminus2").addEventListener('click',on_cokelminus2);
+        document.getElementById("cokelplus2").addEventListener('click',on_cokelplus2);
+
+        zerocokelinput2 = document.getElementById("zerocokelinput2");
+        zerocokelinput2.value = 0;
+        document.getElementById("zerocokelminus2").addEventListener('click',on_zerocokelminus2);
+        document.getElementById("zerocokelplus2").addEventListener('click',on_zerocokelplus2);
+
+        spritelinput2 = document.getElementById("spritelinput2");
+        spritelinput2.value = 0;
+        document.getElementById("spritelminus2").addEventListener('click',on_spritelminus2);
+        document.getElementById("spritelplus2").addEventListener('click',on_spritelplus2);
+
+        picklelinput2 = document.getElementById("picklelinput2");
+        picklelinput2.value = 0;
+        document.getElementById("picklelminus2").addEventListener('click',on_picklelminus2);
+        document.getElementById("picklelplus2").addEventListener('click',on_picklelplus2);
+       
+        document.getElementById("btn_total_commit").addEventListener('click',on_btn_total_commit);
+        document.getElementById("btn_set_clear").addEventListener('click',on_btn_set_clear);
+      
+        function on_chcpizzaplus(){
+            chcpizzaiput.value++;
+        }
+        function on_chcpizzaminus(){
+            if(chcpizzaiput.value>0){
+                chcpizzaiput.value--;
+            }            
+        }
+        
+        function on_abopizzaplus(){
+            abopizzainput.value++;
+        }
+        function on_abopizzaminus(){
+            if(abopizzainput.value>0){
+                abopizzainput.value--;
+            }            
+        }
+
+        function on_conpizzaplus(){
+            conpizzainput.value++;
+        }
+        function on_conpizzaminus(){
+            if(conpizzainput.value>0){
+                conpizzainput.value--;
+            }            
+        }
+        
+        function on_iterpizzaplus(){
+            iterpizzainput.value++;
+        }
+        function on_iterpizzaminus(){
+            if(iterpizzainput.value>0){
+                iterpizzainput.value--;
+            }            
+        }
+
+        function on_wsppizzaplus(){
+            wsppizzainput.value++;
+        }
+        function on_wsppizzaminus(){
+            if(wsppizzainput.value>0){
+                wsppizzainput.value--;
+            }            
+        }
+
+        function on_blcpizzaplus(){
+            blcpizzainput.value++;
+        }
+        function on_blcpizzaminus(){
+            if(blcpizzainput.value>0){
+                blcpizzainput.value--;
+            }            
+        }
+
+        function on_blupizzaplus(){
+            blupizzainput.value++;
+        }
+        function on_blupizzaminus(){
+            if(blupizzainput.value>0){
+                blupizzainput.value--;
+            }            
+        }
+
+        function on_bestpizzaplus(){
+            bestpizzainput.value++;
+        }
+        function on_bestpizzaminus(){
+            if(bestpizzainput.value>0){
+                bestpizzainput.value--;
+            }            
+        }
+
+
+        function on_chcpizzaplus2(){
+            chcpizzaiput2.value++;
+        }
+        function on_chcpizzaminus2(){
+            if(chcpizzaiput2.value>0){
+                chcpizzaiput2.value--;
+            }            
+        }
+        
+        function on_abopizzaplus2(){
+            abopizzainput2.value++;
+        }
+        function on_abopizzaminus2(){
+            if(abopizzainput2.value>0){
+                abopizzainput2.value--;
+            }            
+        }
+
+        function on_conpizzaplus2(){
+            conpizzainput2.value++;
+        }
+        function on_conpizzaminus2(){
+            if(conpizzainput2.value>0){
+                conpizzainput2.value--;
+            }            
+        }
+        
+        function on_iterpizzaplus2(){
+            iterpizzainput2.value++;
+        }
+        function on_iterpizzaminus2(){
+            if(iterpizzainput2.value>0){
+                iterpizzainput2.value--;
+            }            
+        }
+
+        function on_wsppizzaplus2(){
+            wsppizzainput2.value++;
+        }
+        function on_wsppizzaminus2(){
+            if(wsppizzainput2.value>0){
+                wsppizzainput2.value--;
+            }            
+        }
+
+        function on_blcpizzaplus2(){
+            blcpizzainput2.value++;
+        }
+        function on_blcpizzaminus2(){
+            if(blcpizzainput2.value>0){
+                blcpizzainput2.value--;
+            }            
+        }
+
+        function on_blupizzaplus2(){
+            blupizzainput2.value++;
+        }
+        function on_blupizzaminus2(){
+            if(blupizzainput2.value>0){
+                blupizzainput2.value--;
+            }            
+        }
+
+        function on_bestpizzaplus2(){
+            bestpizzainput2.value++;
+        }
+        function on_bestpizzaminus2(){
+            if(bestpizzainput2.value>0){
+                bestpizzainput2.value--;
+            }            
+        }
+
+
+        function on_cokelplus(){
+            cokelinput.value++;
+        }
+        function on_cokelminus(){
+            if(cokelinput.value>0){
+                cokelinput.value--;
+            }            
+        }
+
+        function on_zerocokelplus(){
+            zerocokelinput.value++;
+        }
+        function on_zerocokelminus(){
+            if(zerocokelinput.value>0){
+                zerocokelinput.value--;
+            }            
+        }
+        function on_spritelplus(){
+            spritelinput.value++;
+        }
+        function on_spritelminus(){
+            if(spritelinput.value>0){
+                spritelinput.value--;
+            }            
+        }
+        function on_picklelplus(){
+            picklelinput.value++;
+        }
+        function on_picklelminus(){
+            if(picklelinput.value>0){
+                picklelinput.value--;
+            }            
+        }
+
+        
+        function on_cokelplus2(){
+            cokelinput2.value++;
+        }
+        function on_cokelminus2(){
+            if(cokelinput2.value>0){
+                cokelinput2.value--;
+            }            
+        }
+
+        function on_zerocokelplus2(){
+            zerocokelinput2.value++;
+        }
+        function on_zerocokelminus2(){
+            if(zerocokelinput2.value>0){
+                zerocokelinput2.value--;
+            }            
+        }
+        function on_spritelplus2(){
+            spritelinput2.value++;
+        }
+        function on_spritelminus2(){
+            if(spritelinput2.value>0){
+                spritelinput2.value--;
+            }            
+        }
+        function on_picklelplus2(){
+            picklelinput2.value++;
+        }
+        function on_picklelminus2(){
+            if(picklelinput2.value>0){
+                picklelinput2.value--;
+            }            
+        }
+
+
+    //치즈 크래프트 34900 아보카도 새우 27900 대만 콘치즈 17900 이탈리아 17900 
+    //와일드 33900 블랙타이거36900 블록버스터 36900 베스트 36900
+    //치즈 크래프트 29900 아보카도 새우 20500 콘치즈8000 이탈리아 8000 
+    //와일드 28000 블랙타이거30000 블록버스터 29500 베스트 29500
+    //코카콜라 2300 1700,제로 2300 1700,스프라이트2400 1700 피클 800 500
+        function on_btn_total_commit(){
+            sum = ((34900 * chcpizzaiput.value)+(29000*abopizzainput.value)+(17900*conpizzainput.value)+(17900*iterpizzainput.value)+(33900*wsppizzainput.value)+(36900*blcpizzainput.value)+(36900*blupizzainput.value)+(36900*bestpizzainput.value)
+                +(29900 * chcpizzaiput2.value)+(20500*abopizzainput2.value)+(8000*conpizzainput2.value)+(8000*iterpizzainput2.value)+(28000*wsppizzainput2.value)+(30000*blcpizzainput2.value)+(29500*blupizzainput2.value)+(29500*bestpizzainput2.value));
+            sum+=(2300*cokelinput.value)+(1700*cokelinput2.value)+(2300*zerocokelinput.value)+(1700*zerocokelinput2.value)+(2400*spritelinput.value)+(1700*spritelinput2.value)+(800*picklelinput.value)+(500*picklelinput2.value);
+            com = sum;
+            comma = com.toLocaleString('ko-KR');
+            alert("총 가격은 "+comma+"원 입니다.");
+            aa_input.value='';
+        }
+        function on_btn_set_clear(){
+            location.reload();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .bt{
+            background-color: rgb(211, 252, 255);
+            width: 60px;
+            height: 60px;
+            font-size: 40px;
+            border-radius: 10px;
+            color: #ffc3d6;
+            border-color: #ffbbd0;
+            border : double;
+            
+    }
+    .bt:hover{
+            background-color: rgb(255, 207, 239);
+            color: #bcf7ff;
+            border : double;
+        }
+    .bt1{
+            background-color: rgb(211, 252, 255);
+            width: 130px;
+            height: 60px;
+            font-size: 40px;
+            border-radius: 10px;
+            color: #ffc3d6;
+            border-color: #ffbbd1;
+            border : double;
+    }
+    .bt1:hover{
+            background-color: rgb(255, 207, 239);
+            color: #bcf7ff;
+            border : double;
+        }
+    .bt2{
+            background-color: rgb(211, 252, 255);
+            width: 60px;
+            height: 130px;
+            font-size: 40px;
+            border-radius: 10px;
+            color: #ffc3d6;
+            border-color: #ffabc5;
+            border : double;
+    }
+    .bt2:hover{
+            background-color: rgb(255, 207, 239);
+            color: #bcf7ff;
+            border : double;
+        }
+
+    .input{
+            text-align: right;
+            width: 250px;
+            height: 60px;
+            font-size: 40px;
+            border-radius: 10px;
+            border-color: #ffabc5;
+            
+    }
+    .input2{
+            width: 250px;
+            height: 30px;
+            font-size: 20px;
+            border-radius: 10px;
+            border-color: #ffabc5;
+           
+    }
+</style>
+<body>
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" id="inputsub" class="input2"></td>
+        </tr>
+        <tr>
+            <td colspan="4"><input type="text" id="inputmain" class="input" ></td>
+        </tr>
+        <tr>
+            <td><button id="btn_mul" class="bt">x</button></td>
+            <td><button id="btn_div" class="bt">/</button></td> 
+            <td><button id="btn_clear" class="bt">C</button></td>
+            <td><button id="btn_back" class="bt">←</button></td>
+        </tr>
+        <tr>
+            <td><button id="btn_seven" class="bt">7</button></td>
+            <td><button id="btn_eight" class="bt">8</button></td>
+            <td><button id="btn_nine" class="bt">9</button></td>
+            <td><button id="btn_minus" class="bt">-</button></td>
+        </tr>
+        <tr>
+            <td><button id="btn_four" class="bt">4</button></td>
+            <td><button id="btn_five" class="bt">5</button></td>
+            <td><button id="btn_six" class="bt">6</button></td>
+            <td><button id="btn_plus" class="bt">+</button></td>
+        </tr>
+        <tr>
+            <td><button id="btn_one" class="bt">1</button></td>
+            <td><button id="btn_two" class="bt">2</button></td>
+            <td><button id="btn_three" class="bt">3</button></td>
+            <td rowspan="2"><button id="btn_equal" class="bt2">=</button></td>
+        </tr>
+        <tr>
+           
+            <td colspan="2"><button id="btn_zero" class="bt1">0</button></td>
+            <td><button id="btn_dot" class="bt">.</button></td>
+            
+        </tr>
+    </table>
+    <script>
+        const input = document.getElementById("inputmain");
+        const inputsub = document.getElementById("inputsub");
+        document.getElementById("btn_one").addEventListener('click',on1);
+        document.getElementById("btn_two").addEventListener('click',on2);
+        document.getElementById("btn_three").addEventListener('click',on3);
+        document.getElementById("btn_four").addEventListener('click',on4);
+        document.getElementById("btn_five").addEventListener('click',on5);
+        document.getElementById("btn_six").addEventListener('click',on6);
+        document.getElementById("btn_seven").addEventListener('click',on7);
+        document.getElementById("btn_eight").addEventListener('click',on8);
+        document.getElementById("btn_nine").addEventListener('click',on9);
+        document.getElementById("btn_plus").addEventListener('click',onplus);
+        document.getElementById("btn_minus").addEventListener('click',onminus);
+        document.getElementById("btn_clear").addEventListener('click',onclear);
+        document.getElementById("btn_equal").addEventListener('click',onequal);
+        document.getElementById("btn_mul").addEventListener('click',onmul);
+        document.getElementById("btn_dot").addEventListener('click',ondot);
+        document.getElementById("btn_div").addEventListener('click',ondiv);
+        document.getElementById("btn_back").addEventListener('click',onback);
+
+
+        ar=[];
+        chk = false;
+        function on1(){
+            if(chk){
+                inputsub.value='';
+                chk = false;
+            }
+            ar.push(1);
+            input.value = ar.join("");
+        }
+        function on2(){
+            if(chk){
+                inputsub.value='';
+                chk = false;
+            }
+            ar.push(2);
+            input.value = ar.join("");
+        }
+        function on3(){
+            if(chk){
+                inputsub.value='';
+                chk = false;
+            }
+            ar.push(3);
+            input.value = ar.join("");
+        }
+        function on4(){
+            if(chk){
+                inputsub.value='';
+                chk = false;
+            }
+            ar.push(4);
+            input.value = ar.join("");
+        }
+        function on5(){
+            if(chk){
+                inputsub.value='';
+                chk = false;
+            }
+            ar.push(5);
+            input.value = ar.join("");
+        }
+        function on6(){
+            if(chk){
+                inputsub.value='';
+                chk = false;
+            }
+            ar.push(6);
+            input.value = ar.join("");
+        }
+        function on7(){
+            if(chk){
+                inputsub.value='';
+                chk = false;
+            }
+            ar.push(7);
+            input.value = ar.join("");
+        }
+        function on8(){
+            if(chk){
+                inputsub.value='';
+                chk = false;
+            }
+            ar.push(8);
+            input.value = ar.join("");
+        }
+        function on9(){
+            if(chk){
+                inputsub.value='';
+                chk = false;
+            }
+            ar.push(9);
+            input.value = ar.join("");
+        }
+        function ondot(){
+            if(chk){
+                inputsub.value='';
+                chk = false;
+            }
+            ar.push('.');
+            input.value = ar.join("");
+        }
+        function onclear(){
+            input.value = '';
+            inputsub.value = '';
+        }
+        function onplus(){
+            ar=[];
+            sum = inputsub.value + input.value;
+            inputsub.value = eval(sum) + '+';
+            input.value = eval(sum);
+        }
+        function onmul(){
+            ar=[];
+            sum = inputsub.value + input.value;
+            inputsub.value = eval(sum) + '*';
+            input.value = eval(sum);
+        }
+        function onminus(){
+            ar=[];
+            sum = inputsub.value + input.value;
+            inputsub.value = eval(sum) + '-';
+            input.value = eval(sum);
+        }
+        function ondiv(){
+            ar=[];
+            sum = inputsub.value + input.value;
+            inputsub.value = eval(sum) + '/';
+            input.value = eval(sum);
+        }
+        function onequal(){
+            ar=[];
+            sum = inputsub.value + input.value;
+            inputsub.value = inputsub.value + input.value + '=';
+            input.value = eval(sum);
+            chk = true;
+        }
+        function onback(){
+            ar.splice(ar.length-1,1);
+            input.value =ar.join("");
+        }
+    </script>
+</body>
+</html>

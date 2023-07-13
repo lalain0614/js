@@ -16,9 +16,7 @@
            border:0px;
             
         }
-        .bt:hover{
-            background-color: rgb(255, 255, 255);
-        }
+       
         .bt1{
             background-color: rgb(255, 255, 255);
             width: 60px;
@@ -28,9 +26,6 @@
             border:0px;
 
         }
-        .bt1:hover{
-            background-color: rgb(255, 255, 255);
-        }
         .bt2{
             background-color: rgb(255, 255, 255);
             width: 190px;
@@ -38,9 +33,9 @@
             font-size: 40px;
             border-radius: 30px;
             border:0px;
+        
         }
-        .bt2:hover{
-            background-color: rgb(255, 255, 255);}
+       
         .bt3{
             background-color: rgb(255, 255, 255);
             width: 65px;
@@ -50,48 +45,49 @@
             border:0px;
            
         }
-        .bt3:hover{
-            background-color: rgb(255, 255, 255);
-        }
+       
         .in{
-            width: 250px;
+            width: 280px;
             height: 60px;
             font-size: 40px;
             border-radius: 30px;
+            color: rgb(12, 109, 60);
         }
-
+        img{
+           vertical-align: bottom;
+        }
     </style>
-   <table>
+   <table border="1">
     <tr>
-        <td colspan="4"><input type="text" id="input" class="in"></td>
+        <td align="center" colspan="4"><input type="text" id="input" class="in"></td>
     </tr>
     <tr>
-        <td><button id="div"class="bt3"><img src="sm.png"></button></td>
-        <td><button id="mul"class="bt3"><img src="sx.png"></button></td>
-        <td><button id="c"class="bt3"><img src="sc.png"></button></td>
-        <td><button id="back"class="bt3"><img src="sb.png"></button></td>
-        
+        <td align="center"><button id="div"class="bt3"><img src="sm.png"></button></td>
+        <td align="center"><button id="mul"class="bt3"><img src="sx.png"></button></td>
+        <td align="center"><button id="c"class="bt3"><img src="sc.png"></button></td>
+        <td align="center"><button id="back"class="bt3"><img src="sb.png"></button></td>
     </tr>
     <tr>
-     <td><button id="seven"class="bt"><img src="s7.png"></button></td>
-     <td><button id="eight"class="bt"><img src="s8.png"></button></td>
-     <td><button id="nine"class="bt"><img src="s9.png"></button></td>
-     <td><button id="minus"class="bt3"><img src="smi.png"></button></td>
+     <td align="center"><button id="seven"class="bt"><img src="s7.png"></button></td>
+     <td align="center"><button id="eight"class="bt"><img src="s8.png"></button></td>
+     <td align="center"><button id="nine"class="bt"><img src="s9.png"></button></td>
+     <td align="center"><button id="minus"class="bt3"><img src="smi.png"></button></td>
     </tr>
     <tr>
-        <td><button id="four"class="bt"><img src="s4.png"></button></td>
-        <td><button id="five"class="bt"><img src="s5.png"></button></td>
-        <td><button id="six"class="bt"><img src="s6.png"></button></td>
-        <td><button id="plus"class="bt3"><img src="sp.png"></button></td>
+        <td align="center"><button id="four"class="bt"><img src="s4.png"></button></td>
+        <td align="center"><button id="five"class="bt"><img src="s5.png"></button></td>
+        <td align="center"><button id="six"class="bt"><img src="s6.png"></button></td>
+        <td align="center"><button id="plus"class="bt3"><img src="sp.png"></button></td>
     </tr>
     <tr>
-        <td><button id="one"class="bt"><img src="s1.png"></button></td>
-        <td><button id="two"class="bt"><img src="s2.png"></button></td>
-        <td><button id="three"class="bt"><img src="s3.png"></button></td>
+        <td align="center"><button id="one"class="bt"><img src="s1.png"></button></td>
+        <td align="center"><button id="two"class="bt"><img src="s2.png"></button></td>
+        <td align="center"><button id="three"class="bt"><img src="s3.png"></button></td>
         <td rowspan="2"><button id="enter"class="bt1"><img src="s=.png"></button></td>
     </tr>
     <tr>
-        <td colspan="3"><button id="zero"class="bt2"><img src="s0.png"></button></td>
+        <td align="center" colspan="2"><button id="zero"class="bt2"><img src="s0.png"></button></td>
+        <td align="center"><button id="dot"class="bt"><img src="sjeom.png"></button></td>
     </tr>
    </table>
    
@@ -114,7 +110,7 @@
         document.getElementById("div").addEventListener('click',ondiv);
         document.getElementById("mul").addEventListener('click',onmul);
         document.getElementById("zero").addEventListener('click',onzero);
-
+        document.getElementById("dot").addEventListener('click',ondot);
         ar=[];
 
         function on1(){
@@ -185,6 +181,10 @@
         }
         function onzero(){
             ar.push(0);
+            input.value =ar.join("");
+        }
+        function ondot(){
+            ar.push('.');
             input.value =ar.join("");
         }
         document.write("@kimyejin")

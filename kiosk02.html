@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .inputbox{
+        width: 60px;
+        height: 60px;
+        font-size: 50px;
+        text-align: center;
+    }
+    .bt{
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+    .aa_input{
+        border: 0;
+        text-align: center;
+        font-size: 15px;
+        width: 120px;
+        
+    }
+</style>
+<body>
+    <table border="1" >
+        <tr>
+            <td align="center"><img id = aa_img src="aa.png" width="150" height="200"><br>
+                <input id = aa_name value ="아메리카노(Cold)" class="aa_input"><br>
+                <input id = aa_money value ="5,300원" class="aa_input"><br>
+                <input id = "aa_cold" name="aa_Type" type="radio" value="cold" onclick="javascript:aa_swImg('cold');" checked="checked">COLD
+                <input id = "aa_hot" name="aa_Type" type="radio" value="hot" onclick="javascript:aa_swImg('hot');">HOT<br>
+                <button id = 'aaminus' class="bt">-</button><input type="text" id ='aainput' class="inputbox"><button id="aaplus" class="bt">+</button></td>
+                <td align="center"><img id = latte_img src="latte.PNG" width="150" height="200"><br>
+                <input id = latte_name value ="카페라떼(Cold)" class="aa_input"><br>
+                <input id = latte_money value ="5,900원" class="aa_input"><br>
+                <input id = "latte_cold" name="latte_Type" type="radio" value="cold" onclick="javascript:latte_swImg('cold');" checked="checked">COLD
+                <input id = "latte_hot" name="latte_Type" type="radio" value="hot" onclick="javascript:latte_swImg('hot');">HOT<br>
+                <button id = 'latteminus' class="bt">-</button><input type="text" id ='latteinput' class="inputbox"><button id="latteplus" class="bt">+</button></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="btn_set_clear">초기화</button></td>
+            <td align="center"><button id="btn_total_commit">계산</button></td>
+        </tr>
+    </table>
+    <div style="background-color: aqua;" id="aa_logs"></div>
+    <div style="background-color: aqua;" id="latte_logs"></div>
+    <script>
+        const $aa_logs = document.querySelector('#aa_logs');
+        const $latte_logs = document.querySelector('#latte_logs');
+        aa_input = document.getElementById("aainput");
+        latte_input = document.getElementById("latteinput");
+        aa_input.value = 0;
+        latte_input.value = 0 ;
+        document.getElementById("aaplus").addEventListener('click',on_aaplus);
+        document.getElementById("aaminus").addEventListener('click',on_aaminus);
+        document.getElementById("latteplus").addEventListener('click',on_latteplus);
+        document.getElementById("latteminus").addEventListener('click',on_latteminus);
+        document.getElementById("btn_total_commit").addEventListener('click',on_btn_total_commit);
+        document.getElementById("btn_set_clear").addEventListener('click',on_btn_set_clear);
+        
+        function on_aaplus(){
+            aa_input.value++;
+        }
+        function on_aaminus(){
+            if(aa_input.value>0){
+                aa_input.value--;
+            }            
+        }
+        function on_latteplus(){
+            latte_input.value++;
+        }
+        function on_latteminus(){
+            if(latte_input.value>0){
+                latte_input.value--;
+            }            
+        }
+        function on_btn_total_commit(){
+            var aa_radio = document.getElementsByName("aa_Type");
+            var aa_Value ="";
+            for(var i=0;i<aa_radio.length;i++){
+                if(aa_radio[i].checked){
+                    aa_Value = aa_radio[i].value;
+                }                
+            }
+            aa = 5300;
+            if(aa_Value=="hot"){
+                aa=4800;
+            }
+            var latte_radio = document.getElementsByName("latte_Type");
+            var latte_Value ="";
+            for(var i=0;i<latte_radio.length;i++){
+                if(latte_radio[i].checked){
+                    latte_Value = latte_radio[i].value;
+                }                
+            }
+            latte = 5900;
+            if(latte_Value=="hot"){
+                latte=5400;
+            }
+            sum = (aa * aa_input.value)+(latte * latte_input.value);
+            com = sum
+            comma = com.toLocaleString('ko-KR');
+            alert("총 가격은 "+comma+"원 입니다.");
+            aa_name=document.getElementById("aa_name");
+            $aa_logs.innerText='';
+            $latte_logs.innerText='';
+            if(aa_input.value>0){
+                $aa_logs.append(aa_name.value+' : '+aa_input.value+'잔 '+ (aa * aa_input.value) +'원',document.createElement('br'));
+            }
+            if(latte_input.value>0){
+                $latte_logs.append(latte_name.value+' : '+latte_input.value+'잔 '+ (latte * latte_input.value) +'원',document.createElement('br'));
+            }
+            aa_input.value='0';
+            latte_input.value = '0';
+            
+        }
+        function on_btn_set_clear(){
+            location.reload();
+        }
+        function aa_swImg(aa_Type){        
+            var Type=aa_Type;
+            if(Type=="cold"){
+                document.getElementById("aa_img").src="aa.png";
+                document.getElementById("aa_name").value="아메리카노(Cold)";
+                document.getElementById("aa_money").value="5,300원";
+            }
+            else if(Type=="hot"){
+                document.getElementById("aa_img").src="aa_hot.png";
+                document.getElementById("aa_name").value="아메리카노(Hot)";
+                document.getElementById("aa_money").value="4,800원";
+            }
+        }
+        function latte_swImg(latte_Type){        
+            var Type=latte_Type;
+            if(Type=="cold"){
+                document.getElementById("latte_img").src="latte.png";
+                document.getElementById("latte_name").value="카페라떼(Cold)";
+                document.getElementById("latte_money").value="5,900원";
+            }
+            else if(Type=="hot"){
+                document.getElementById("latte_img").src="latte_hot.png";
+                document.getElementById("latte_name").value="카페라떼(Hot)";
+                document.getElementById("latte_money").value="5,400원";
+            }
+        }
+    </script>
+</body>
+</html>
