@@ -25,6 +25,9 @@
         document.getElementById("quit").addEventListener('click',close_quit);
         function close_quit(){
             const exit=confirm("정말 종료 하시겠습니까?");
+            if(exit === true){
+                window.close();
+            }
         }
         function on_calc(){
             $logs.innerText='';
