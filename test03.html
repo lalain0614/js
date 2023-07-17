@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function displayCart() {
+    var cartItems = localStorage.getItem('cartItems');
+    if (cartItems) {
+        cartItems = JSON.parse(cartItems);
+        // 장바구니 정보를 표시할 HTML 요소를 선택하고 내용을 추가합니다.
+        var cartElement = document.getElementById('cartItems');
+        cartElement.innerHTML = '';
+        for (var i = 0; i < cartItems.length; i++) {
+            var item = cartItems[i];
+            var itemElement = document.createElement('div');
+            itemElement.innerText = item.title + ' - ' + item.price + ' x ' + item.quantity;
+            cartElement.appendChild(itemElement);
+        }
+    }
+}
+
+    </script>
+</body>
+</html>
