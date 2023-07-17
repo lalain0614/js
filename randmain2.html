@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border=0 align="center">
+        <tr>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+
+            <td><img src="note01.png" alt="note01.png" id="Slide" onclick="navigateToNextPage(move)" ></td>
+            <td><img src="pen.png" alt="pen.png" id="Slide1" onclick="navigateToNextPage(move1)"></td>
+            <td><img src="book.png" alt="book.png" id="Slide2" onclick="navigateToNextPage(move2)"></td> 
+        </tr>
+        <script>
+            xx=["note01","pen","book"];
+            var move=xx[0]
+            var move1=xx[1]
+            var move2=xx[2]
+
+            let slide = document.getElementById("Slide");
+            let imgArr = ["note01.png","note02.png","note03.png"];
+            let btnArr=["note01","note02","note03"];
+        
+            setInterval(()=>{
+            let ranNum = Math.floor(Math.random() * imgArr.length);
+                slide.src= imgArr[ranNum];
+                move=btnArr[ranNum];
+            },2000);
+            
+
+            let slide1 = document.getElementById("Slide1");
+            let imgArr1 = ["pen.png","poon.png","pin.png"];
+            let btnArr1=["pen","poon","pin"];
+
+        
+            setInterval(()=>{
+            let ranNum1 = Math.floor(Math.random() * imgArr1.length);
+                slide1.src= imgArr1[ranNum1];
+                move1=btnArr1[ranNum1];
+            },2000);
+            
+            let slide2 = document.getElementById("Slide2");
+            let imgArr2 = ["book.png","boong.png","clip.png"];
+            let btnArr2=["book","boong","clip"];
+        
+            setInterval(()=>{
+            let ranNum2 = Math.floor(Math.random() * imgArr2.length);
+                slide2.src= imgArr2[ranNum2];
+                move2=btnArr2[ranNum2];
+            },2000);
+
+            
+            function navigateToNextPage(buttonId) {
+            sessionStorage.setItem('imageInfo', buttonId);
+            window.location.href = "sangsepage01.html";
+            }
+
+            </script>            
+
+    </table>
+</body>
+</html>

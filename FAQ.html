@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAQ</title>
+    <style>
+        .hidden {
+            display: none;
+            font-size: 20px;
+            background-color: rgb(231, 231, 231);
+        }
+        .Button{
+            width: 800px;
+            height: 25px;
+            border: none;
+            background-color: rgb(255, 255, 255);
+            font-size: 28px;
+            color: rgb(82, 77, 77);
+            font-weight: 530;
+        }
+    </style>
+</head>
+<body>
+    <table  align="center">
+        <tr align="center">
+            <td><br><img src="daiso01.gif"><br>글씨를 누르시면 각각의 답변을 확인하실 수 있습니다.<br></td>
+        </tr>
+        <tr align="center">
+            <td><br><br>
+                <button onclick="toggleText('hide1')" class="Button">FAQ 01. 이곳은 뭐 하는 곳인가요?</button>
+                <p id="hide1" class="hidden"><br>프로젝트로 만든 다이소몰 홈페이지 입니다!<br>상업적인 용도가 아닌 프로젝트를 위한 홈페이지 입니다.<br><br></p>
+            </td>
+        </tr>
+        <tr align="center">
+            <td><br><br>
+                <button onclick="toggleText('hide2')" class="Button">FAQ 02. 상품을 구입하고 싶어요!</button>
+                <p id="hide2" class="hidden"><br>실제 다이소몰 홈페이지에서 구입 가능합니다.<br>
+                <a href="https://www.daisomall.co.kr/online/online_main.php">https://www.daisomall.co.kr/online/online_main.php</a> 로 이동해서 구입해주세요!<br><br></p>
+            </td>
+        </tr>
+        <tr align="center">
+            <td><br><br>
+                <button onclick="toggleText('hide3')" class="Button">FAQ 03. 실제 상품이랑 이름이 좀 다른데요?</button>
+                <p id="hide3" class="hidden"><br>가지런한 글씨의 정렬을 위해 일부 상품은 이름을 줄여서 넣었습니다.<br>주요 키워드는 같기 때문에 다이소몰에서 검색하셔도 상품이 나옵니다!<br><br></p>
+            </td>
+        </tr>
+        <tr align="center">
+            <td><br><br>
+                <button onclick="toggleText('hide4')" class="Button">FAQ 04. 고객센터인데 1:1 상담은 어디있나요?</button>
+                <p id="hide4" class="hidden"><br>1:1 상담은 지원하지 않습니다.<br><br></p>
+            </td>
+        </tr>
+        <tr align="center">
+            <td><br><br>
+                <button onclick="toggleText('hide5')" class="Button">FAQ 05. 실제로 상품이 있는 거 맞나요?</button>
+                <p id="hide5" class="hidden"><br>제작 당시에 다이소몰 홈페이지에서 실제 판매중인 상품을 찾아 넣었습니다.
+                <br>다이소몰의 사정에 따라 상품이 판매 종료가 됐을수도 있습니다.<br>
+                <a href="https://www.daisomall.co.kr/online/online_main.php">https://www.daisomall.co.kr/online/online_main.php</a> 로 이동해서 상품을 찾아주세요!<br>양해 부탁드립니다.
+                <br><br></p>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function toggleText(elementId) {
+            var clicktext = document.getElementById(elementId);
+            if (clicktext.style.display === "none") {
+                clicktext.style.display = "block";
+            } else {
+                clicktext.style.display = "none";
+            }
+        }
+        
+        function GoGo(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
