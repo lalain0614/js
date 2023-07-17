@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사무용품</title>
+</head>
+<style>
+    .Bt{
+        background-color: rgb(255, 255, 255);
+        width: 230px;
+        height: 230px;
+        font-size: 40px;
+        border-radius: 30px;
+        border: none;
+    }
+    .bt{
+        background-color: rgb(255, 255, 255);
+        border: none;
+    }
+</style>
+<body>
+
+    <table align="center">
+        <tr>
+            <td align="center"><button id="kid" class="Bt" onclick="navigateToNextPage('kid')"><img src="kid.gif"></button></td>
+            <td align="center"><button id="little" class="Bt" onclick="navigateToNextPage('little')"><img src="little.gif"></td>
+            <td align="center"><button id="jeob" class="Bt" onclick="navigateToNextPage('jeob')"><img src="jeob.gif"></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="kid01" class="bt" onclick="navigateToNextPage('kid')">
+                [다이소]리틀메이트_키즈샴푸캡<br><br>가격 : 2000원
+            </button><br><br><br></td>
+            <td align="center"><button id="little01" class="bt" onclick="navigateToNextPage('little')">
+                [다이소]리틀메이트_양수양치<br><br>가격 : 1000원
+            </button><br><br><br></td>
+            <td align="center"><button id="jeob01" class="bt" onclick="navigateToNextPage('jeob')">
+                [다이소]접착식 코너 수납함<br><br>가격 : 3000원
+            </button><br><br><br></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="jacad" class="Bt" onclick="navigateToNextPage('jacad')"><img src="jacad.gif"></button></td>
+            <td align="center"><button id="bubble" class="Bt" onclick="navigateToNextPage('bubble')"><img src="bubble.gif"></td>
+            <td align="center"><button id="perioe" class="Bt" onclick="navigateToNextPage('perioe')"><img src="perioe.gif"></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="jacad01" class="bt" onclick="navigateToNextPage('jacad')">
+                [다이소]기하학 자카드 발매트<br><br>가격 : 5000원
+            </button><br><br><br></td>
+            <td align="center"><button id="bubble01" class="bt" onclick="navigateToNextPage('bubble')">
+                [다이소]거품입욕제<br><br>가격 : 3000원
+            </button><br><br><br></td>
+            <td align="center"><button id="perioe01" class="bt" onclick="navigateToNextPage('perioe')">
+                [다이소]페리오토탈솔루션<br><br>가격 : 1000원
+            </button><br><br><br></td>
+        </tr>
+      
+        <tr>
+            <td align="center"><button id="slipper" class="Bt" onclick="navigateToNextPage('slipper')"><img src="slipper.gif"></button></td>
+            <td align="center"><button id="disney" class="Bt" onclick="navigateToNextPage('disney')"><img src="disney.gif"></td>
+            <td align="center"><button id="bchar" class="Bt" onclick="navigateToNextPage('bchar')"><img src="bchar.gif"></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="slipper01" class="bt" onclick="navigateToNextPage('slipper')">
+                [다이소]기능성욕실화<br><br>가격 : 3000원
+            </button><br><br><br></td>
+            <td align="center"><button id="disney01" class="bt" onclick="navigateToNextPage('disney')">
+                [다이소]디즈니위니더푸샤워타월<br><br>가격 : 2000원
+            </button><br><br><br></td>
+            <td align="center"><button id="bchar" class="bt" onclick="navigateToNextPage('bchar')">
+                [다이소]바스목욕의자대<br><br>가격 : 3000원
+            </button><br><br><br></td>
+        </tr>
+      
+    </table>
+
+    <script>
+        function navigateToNextPage(buttonId) {
+            sessionStorage.setItem('imageInfo', buttonId);
+            window.location.href = "sangsepage01.html";
+        }
+    </script>
+
+</body>
+</html>

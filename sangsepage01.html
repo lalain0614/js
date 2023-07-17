@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세페이지_사무용품</title>
+</head>
+<style>
+   
+   .bt {
+        font-size: larger;
+        font-weight: bold;
+        border: none;
+    }
+
+    .bt1 {
+        font-size: medium;
+    }
+    .bt2{
+        width: 20px;
+        height: 20px;
+        background-color: rgb(163, 16, 16);
+        color: aliceblue;
+        border-radius: 5px;
+        border: none;
+        font-size: 15px;
+    }
+    .bt2:hover{
+        background-color: rgb(19, 94, 42);
+        color: aliceblue;
+        
+        border: none;
+    }
+
+    .inputbox {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        width: 25px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+        border: none;
+    }
+
+    .inputbox2 {
+        width: 50px;
+        height: 15px;
+        font-size: 15px;
+        text-align: center;
+        border: none;
+    }
+</style>
+<body>
+    <table align="center" border="0">
+        <tr>
+            <td colspan="2" align="left" class="bt">
+                &nbsp;<span id="productTitle"></span>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 500px;">
+                <div id="productImageContainer">
+                    <img id="productImage1" src="" >
+                </div>
+            </td>
+            <td align="right" class="bt1">
+                <br><br>
+                판매가 :&nbsp;&nbsp;<span id="productPrice"></span>
+                <br><br>수량 :&nbsp;<button id="bookminus" class="bt2" onclick="decreaseQuantity()">-</button>
+                <input type="text" id="bookinput" class="inputbox" value="0"><button id="bookplus" class="bt2" onclick="increaseQuantity()">+</button>
+                <br><br>&nbsp;합계 :&nbsp;<input type="text" id="total" class="inputbox2" readonly>원
+            </td>
+        </tr>
+        <tr>
+            <td><img src="too.png"></td>
+            <td><img src="too.png"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="imageInfo01"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <div id="productImageContainer2"></div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var quantityInput = document.getElementById("bookinput");
+        var totalPriceInput = document.getElementById("total");
+        var productPriceElement = document.getElementById("productPrice");
+        var productImageContainer = document.getElementById("productImageContainer");
+        var productImageContainer2 = document.getElementById("productImageContainer2");
+
+        var productPrice = parseInt(productPriceElement.innerText);
+
+        function updateTotalPrice() {
+            var quantity = parseInt(quantityInput.value);
+            var totalPrice = quantity * productPrice;
+            totalPriceInput.value = totalPrice;
+        }
+
+        function increaseQuantity() {
+            var quantity = parseInt(quantityInput.value);
+            quantityInput.value = quantity + 1;
+            updateTotalPrice();
+        }
+
+        function decreaseQuantity() {
+            var quantity = parseInt(quantityInput.value);
+            if (quantity > 0) {
+                quantityInput.value = quantity - 1;
+                updateTotalPrice();
+            }
+        }
+
+        function displayImageInfo() {
+            var imageInfo = sessionStorage.getItem('imageInfo');
+            var imageInfoElement = document.getElementById('imageInfo01');
+            var productTitleElement = document.getElementById('productTitle');
+            if (imageInfoElement && productTitleElement && productPriceElement && productImageContainer && productImageContainer2) {
+                var title = "";
+                var imageSrc1 = "";
+                var imageSrc2 = "";
+                switch (imageInfo) {
+                    case 'note01':
+                        title = "[다이소]말랑커버6공다이어리";
+                        productPrice = 3000;
+                        imageSrc1 = "note01_02.gif";
+                        imageSrc2 = "note01_01.jpg";
+                        break;
+                    case 'note02':
+                        title = "[다이소]투명커버다이어리";
+                        productPrice = 2000;
+                        imageSrc1 = "note02_02.gif";
+                        imageSrc2 = "note02_01.jpg";
+                        break;
+                    case 'note03':
+                        title = "[다이소]투명커버스터디플래너";
+                        productPrice = 3000;
+                        imageSrc1 = "note03_02.gif";
+                        imageSrc2 = "note03_1.jpg";
+                        break;
+    
+                    case 'pen':
+                        title = "[다이소]A미니멜로우 워터스틱 볼펜";
+                        productPrice = 2000;
+                        imageSrc1 = "pen02.gif";
+                        imageSrc2 = "pen01.jpg";
+                        break;
+                    case 'poon':
+                        title = "[다이소]휴대용 1공 펀치";
+                        productPrice = 1000;
+                        imageSrc1 = "poon02.gif";
+                        imageSrc2 = "poon01.jpg";
+                        break; 
+                    case 'pin':
+                        title = "[다이소]핀클립세트";
+                        productPrice = 1000;
+                        imageSrc1 = "pin02.gif";
+                        imageSrc2 = "pin01.jpg";
+                        break;    
+                   
+                    case 'book':
+                        title = "[다이소]디자인책꽂이";
+                        productPrice = 2000;
+                        imageSrc1 = "book.gif";
+                        imageSrc2 = "book01.jpg";
+                        break; 
+                    case 'boong':
+                        title = "[다이소]입체꽃 금박봉투";
+                        productPrice = 1000;
+                        imageSrc1 = "boong02.gif";
+                        imageSrc2 = "boong01.jpg";
+                        break; 
+                    case 'clip':
+                        title = "[다이소]A5커버형클립보드";
+                        productPrice = 1000;
+                        imageSrc1 = "clip02.gif";
+                        imageSrc2 = "clip01.jpg";
+                        break;    
+                        
+                    case 'kid':
+                        title = "[다이소]리틀메이트_키즈샴푸캡";
+                        productPrice = 2000;
+                        imageSrc1 = "kid01.gif";
+                        imageSrc2 = "kid02.jpg";
+                        break;       
+
+                    case 'little':
+                        title = "[다이소]리틀메이트_양수양치";
+                        productPrice = 1000;
+                        imageSrc1 = "little01.gif";
+                        imageSrc2 = "little02.jpg";
+                        break;  
+                    case 'little':
+                        title = "[다이소]접착식 코너 수납함";
+                        productPrice = 3000;
+                        imageSrc1 = "jeob01.gif";
+                        imageSrc2 = "jeob02.jpg";
+                        break;
+                        
+                    case 'jacad':
+                        title = "[다이소]기하학 자카드 발매트";
+                        productPrice = 5000;
+                        imageSrc1 = "jacad01.gif";
+                        imageSrc2 = "jacad02.jpg";
+                        break;   
+                    case 'bubble':
+                        title = "[다이소]거품입욕제";
+                        productPrice = 3000;
+                        imageSrc1 = "bubble01.gif";
+                        imageSrc2 = "bubble02.jpg";
+                        break;   
+                    case 'perioe':
+                        title = "[다이소]페리오토탈솔루션";
+                        productPrice = 1000;
+                        imageSrc1 = "perioe01.gif";
+                        imageSrc2 = "perioe02.jpg";
+                        break;     
+                    case 'slipper':
+                        title = "[다이소]기능성욕실화";
+                        productPrice = 3000;
+                        imageSrc1 = "slipper01.gif";
+                        imageSrc2 = "slipper02.jpg";
+                        break;  
+                    case 'disney':
+                        title = "[다이소]디즈니위니더푸샤워타월";
+                        productPrice = 2000;
+                        imageSrc1 = "disney01.gif";
+                        imageSrc2 = "disney02.jpg";
+                        break;  
+                    case 'bchar':
+                        title = "[다이소]바스목욕의자대";
+                        productPrice = 3000;
+                        imageSrc1 = "bchar01.gif";
+                        imageSrc2 = "bchar02.jpg";
+                        break;
+                    
+                    case 'basket':
+                        title = "[다이소]냉장고수납바구니4호";
+                        productPrice = 2000;
+                        imageSrc1 = "basket01.gif";
+                        imageSrc2 = "basket02.jpg";
+                        break; 
+                    case 'silicon':
+                        title = "[다이소]고리형실리콘냄비받침";
+                        productPrice = 2000;
+                        imageSrc1 = "silicon01.gif";
+                        imageSrc2 = "silicon02.jpg";
+                        break; 
+                    case 'knife':
+                        title = "[다이소]원목느낌손잡이나이프";
+                        productPrice = 1000;
+                        imageSrc1 = "knife01.gif";
+                        imageSrc2 = "knife02.jpg";
+                        break; 
+                    case 'fork':
+                        title = "[다이소]원목느낌손잡이포크";
+                        productPrice = 1000;
+                        imageSrc1 = "fork01.gif";
+                        imageSrc2 = "fork02.jpg";
+                        break; 
+                    case 'pasta':
+                        title = "[다이소]스텐파스타접시";
+                        productPrice = 5000;
+                        imageSrc1 = "pasta01.gif";
+                        imageSrc2 = "pasta02.jpg";
+                        break;            
+                    case 'grain':
+                        title = "[다이소]돔뚜껑곡물저장용기";
+                        productPrice = 2000;
+                        imageSrc1 = "grain01.gif";
+                        imageSrc2 = "grain02.jpg";
+                        break;         
+                    case 'melamine':
+                        title = "[다이소]돔뚜껑곡물저장용기";
+                        productPrice = 2000;
+                        imageSrc1 = "melamine01.gif";
+                        imageSrc2 = "melamine02.jpg";
+                        break;   
+                    case 'kakao':
+                        title = "[다이소]카카오프렌즈_빨대물병";
+                        productPrice = 3000;
+                        imageSrc1 = "kakao01.gif";
+                        imageSrc2 = "kakao02.jpg";
+                        break;  
+                    case 'tray':
+                        title = "[다이소]목제사각다과쟁반";
+                        productPrice = 5000;
+                        imageSrc1 = "tray01.gif";
+                        imageSrc2 = "tray02.jpg";
+                        break;                
+                    default:
+                        break;
+                        
+                }
+
+                imageInfoElement.innerHTML = '';
+                productTitleElement.innerHTML = title;
+                productPriceElement.innerHTML = productPrice + "원";
+                productImageContainer.innerHTML = '<img id="productImage1" src="' + imageSrc1 + '">';
+                productImageContainer2.innerHTML = '<img id="productImage2" src="' + imageSrc2 + '">';
+                updateTotalPrice();
+            } else {
+                console.log("Image info element not found.");
+            }
+        }
+
+        displayImageInfo();
+    </script>
+</body>
+</html>

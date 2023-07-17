@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사무용품</title>
+</head>
+<style>
+    .Bt{
+        background-color: rgb(255, 255, 255);
+        width: 230px;
+        height: 230px;
+        font-size: 40px;
+        border-radius: 30px;
+        border: none;
+    }
+    .bt{
+        background-color: rgb(255, 255, 255);
+        border: none;
+    }
+</style>
+<body>
+
+    <table align="center">
+        <tr>
+            <td align="center"><button id="note01" class="Bt" onclick="navigateToNextPage('note01')"><img src="note01.PNG"></button></td>
+            <td align="center"><button id="note02" class="Bt" onclick="navigateToNextPage('note02')"><img src="note02.PNG"></td>
+            <td align="center"><button id="note03" class="Bt" onclick="navigateToNextPage('note03')"><img src="note03.PNG"></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="note01_1" class="bt" onclick="navigateToNextPage('note01')">
+                [다이소]말랑커버6공다이어리<br><br>가격 : 3000원
+            </button><br><br><br></td>
+            <td align="center"><button id="note02_1" class="bt" onclick="navigateToNextPage('note02')">
+                [다이소]투명커버다이어리<br><br>가격 : 2000원
+            </button><br><br><br></td>
+            <td align="center"><button id="note03_1" class="bt" onclick="navigateToNextPage('note03')">
+                [다이소]투명커버스터디플래너<br><br>가격 : 3000원
+            </button><br><br><br></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="pen" class="Bt" onclick="navigateToNextPage('pen')"><img src="pen.PNG"></button></td>
+            <td align="center"><button id="poon" class="Bt" onclick="navigateToNextPage('poon')"><img src="poon.PNG"></td>
+            <td align="center"><button id="pin" class="Bt" onclick="navigateToNextPage('pin')"><img src="pin.PNG"></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="pen_1" class="bt" onclick="navigateToNextPage('pen')">
+                [다이소]A미니멜로우 워터스틱 볼펜<br><br>가격 : 2000원
+            </button><br><br><br></td>
+            <td align="center"><button id="poon_1" class="bt" onclick="navigateToNextPage('poon')">
+                [다이소]휴대용 1공 펀치<br><br>가격 : 1000원
+            </button><br><br><br></td>
+            <td align="center"><button id="pin_1" class="bt" onclick="navigateToNextPage('pin')">
+                [다이소]핀클립세트<br><br>가격 : 1000원
+            </button><br><br><br></td>
+        </tr>
+      
+        <tr>
+            <td align="center"><button id="book" class="Bt" onclick="navigateToNextPage('book')"><img src="book02.PNG"></button></td>
+            <td align="center"><button id="boong" class="Bt" onclick="navigateToNextPage('boong')"><img src="boong.PNG"></td>
+            <td align="center"><button id="clip" class="Bt" onclick="navigateToNextPage('clip')"><img src="clip.PNG"></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="book_1" class="bt" onclick="navigateToNextPage('book')">
+                [다이소]디자인책꽂이<br><br>가격 : 2000원
+            </button><br><br><br></td>
+            <td align="center"><button id="boong_1" class="bt" onclick="navigateToNextPage('boong')">
+                [다이소]입체꽃 금박봉투<br><br>가격 : 1000원
+            </button><br><br><br></td>
+            <td align="center"><button id="clip_1" class="bt" onclick="navigateToNextPage('clip')">
+                [다이소]A5커버형클립보드<br><br>가격 : 1000원
+            </button><br><br><br></td>
+        </tr>
+      
+    </table>
+
+    <script>
+        function navigateToNextPage(buttonId) {
+            sessionStorage.setItem('imageInfo', buttonId);
+            window.location.href = "sangsepage01.html";
+        }
+    </script>
+
+</body>
+</html>

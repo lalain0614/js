@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사무용품</title>
+</head>
+<style>
+    .Bt{
+        background-color: rgb(255, 255, 255);
+        width: 230px;
+        height: 230px;
+        font-size: 40px;
+        border-radius: 30px;
+        border: none;
+    }
+    .bt{
+        background-color: rgb(255, 255, 255);
+        border: none;
+    }
+</style>
+<body>
+
+    <table align="center">
+        <tr>
+            <td align="center"><button id="basket" class="Bt" onclick="navigateToNextPage('basket')"><img src="basket.gif"></button></td>
+            <td align="center"><button id="silicon" class="Bt" onclick="navigateToNextPage('silicon')"><img src="silicon.gif"></td>
+            <td align="center"><button id="knife" class="Bt" onclick="navigateToNextPage('knife')"><img src="knife.gif"></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="basket01" class="bt" onclick="navigateToNextPage('basket')">
+                [다이소]냉장고수납바구니4호<br><br>가격 : 2000원
+            </button><br><br><br></td>
+            <td align="center"><button id="silicon01" class="bt" onclick="navigateToNextPage('silicon')">
+                [다이소]고리형실리콘냄비받침<br><br>가격 : 2000원
+            </button><br><br><br></td>
+            <td align="center"><button id="knife01" class="bt" onclick="navigateToNextPage('knife')">
+                [다이소]원목느낌손잡이나이프<br><br>가격 : 1000원
+            </button><br><br><br></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="fork" class="Bt" onclick="navigateToNextPage('fork')"><img src="fork.gif"></button></td>
+            <td align="center"><button id="pasta" class="Bt" onclick="navigateToNextPage('pasta')"><img src="pasta.gif"></td>
+            <td align="center"><button id="grain" class="Bt" onclick="navigateToNextPage('grain')"><img src="grain.gif"></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="fork01" class="bt" onclick="navigateToNextPage('fork')">
+                [다이소]원목느낌손잡이포크<br><br>가격 : 1000원
+            </button><br><br><br></td>
+            <td align="center"><button id="pasta01" class="bt" onclick="navigateToNextPage('pasta')">
+                [다이소]스텐파스타접시<br><br>가격 : 5000원
+            </button><br><br><br></td>
+            <td align="center"><button id="grain01" class="bt" onclick="navigateToNextPage('grain')">
+                [다이소]돔뚜껑곡물저장용기<br><br>가격 : 2000원
+            </button><br><br><br></td>
+        </tr>
+      
+        <tr>
+            <td align="center"><button id="melamine" class="Bt" onclick="navigateToNextPage('melamine')"><img src="melamine.gif"></button></td>
+            <td align="center"><button id="kakao" class="Bt" onclick="navigateToNextPage('disney')"><img src="kakao.gif"></td>
+            <td align="center"><button id="tray" class="Bt" onclick="navigateToNextPage('bchar')"><img src="tray.gif"></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="melamine01" class="bt" onclick="navigateToNextPage('melamine')">
+                [다이소]디즈니_핍앤데일_멜라닌<br><br>가격 : 2000원
+            </button><br><br><br></td>
+            <td align="center"><button id="kakao01" class="bt" onclick="navigateToNextPage('kakao')">
+                [다이소]카카오프렌즈_빨대물병<br><br>가격 : 3000원
+            </button><br><br><br></td>
+            <td align="center"><button id="tray01" class="bt" onclick="navigateToNextPage('tray')">
+                [다이소]목제사각다과쟁반<br><br>가격 : 5000원
+            </button><br><br><br></td>
+        </tr>
+      
+    </table>
+
+    <script>
+        function navigateToNextPage(buttonId) {
+            sessionStorage.setItem('imageInfo', buttonId);
+            window.location.href = "sangsepage01.html";
+        }
+    </script>
+
+</body>
+</html>
