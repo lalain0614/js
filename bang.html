@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <style>
-    .buttonBBang {
+    .buttonBBang{
         width: 50px;
         height: 50px;
         background-color: rgb(90, 89, 89);
@@ -14,59 +14,52 @@
         border: none;
         color: aliceblue;
     }
-
-    .buttonBBang:hover {
+    .buttonBBang:hover{
         background-color: aliceblue;
         color: rgb(90, 89, 89);
     }
 </style>
 <body>
-    <h1>지뢰찾기</h1>
+<h1>지뢰찾기</h1>
     <script>
-        var ar = [];
-        var br = [];
-        for (i = 0; i < 75; i++) {
-            ar[i] = 0;
+        var ar=[]
+        var br=[];
+        for(i=0;i<75;i++){
+            ar[i]=0;
         }
-        for (i = 75; i < 100; i++) {
-            ar[i] = 1;
+        for(i=75;i<100;i++){
+            ar[i]=1;
         }
-
-        for (i = 0; i < 100; i++) {
-            var rd = Math.floor(Math.random() * ar.length);
+        
+       for(i=0;i<100;i++){
+        rd= Math.floor(Math.random()*ar.length);
             br.push(ar[rd]);
-            ar.splice(rd, 1);
+            ar.splice(rd,1);
+       }
+        console.log(br)
+        function BangButton(number){
+            document.write('<button class="buttonBBang" value="'+br[number]+'" onclick="btn_on('+br[number]+')">' + (number+1) + '</button>');
         }
-
-        console.log(br);
-
-        function BangButton(number) {
-            document.write('<button class="buttonBBang" value="' + br[number] + '" onclick="btn_on(' + br[number] + ')">' + (number + 1) + '</button>');
-        }
-
-        function Bangbutton2() {
-            for (i = 0; i < 100; i++) {
+        function Bangbutton2(){
+            for (i=0;i<100;i++){
                 BangButton(i);
-                if ((i + 1) % 10 === 0) {
-                    document.write('<br>');
+                if((i+1)%10===0){
+                    document.write('<br>')
                 }
             }
         }
-
         Bangbutton2();
 
         function btn_on(x) {
-            var allButtons = document.querySelectorAll('.buttonBBang');
-            if (x === 1) {
-                alert("지뢰 터짐");
-                var chk = confirm("재도전?");
-                if (chk) {
-                    location.reload();
-                }
-            } else {
-                allButtons[x - 1].style.backgroundColor = 'rgb(255, 217, 200)';
+        if (x === 1) {
+            alert("지뢰 터짐");
+            var chk = confirm("재도전?");
+            if (chk) {
+                location.reload();
             }
         }
+    }
+       
     </script>
 </body>
 </html>
