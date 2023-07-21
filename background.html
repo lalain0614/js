@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="TheBody">
+    <button onclick="ChangebgColor();">배경색 순서대로 바꾸기</button><br>
+    <button onclick="ChangebgColorRand();">배경색 무작위로 바꾸기</button><br>
+    <button onclick="ChangebgColorRand_Auto_start();">배경색 자동으로 바꾸기_시작</button>
+    <button onclick="ChangebgColorRand_Auto_end();">배경색 자동으로 바꾸기_끝내기</button>
+    <script>
+        var color=["gray","red","pink","yellow","aqua","purple"];
+        i=0;
+        var TheBody = document.getElementById('TheBody');
+
+        function ChangebgColor(){
+            TheBody.style.backgroundColor=color[i];
+            i++;
+            if(i>=color.length){
+                i=0;
+            }
+        }
+        function ChangebgColorRand(){
+            rd = Math.floor(Math.random()*6);
+            TheBody.style.backgroundColor=color[rd];
+        }
+
+        ChangebgColorRand_Auto_start = function(){
+            play = setInterval(function (){
+                rd = Math.floor(Math.random()*6);
+                TheBody.style.backgroundColor=color[rd];
+            },100);
+        };
+        function ChangebgColorRand_Auto_end(){
+            clearInterval(play);
+        };
+    </script>
+    
+</body>
+</html>

@@ -29,7 +29,7 @@
                         console.log(buho);
                     }
                     else if(buho[i] == '/'){
-                        su[i] = su[i] * su[i+1];
+                        su[i] = su[i] / su[i+1];
                         su.splice(i+1,1);
                         buho.splice(i,1);
                         console.log(su);
@@ -43,7 +43,7 @@
                     su[x] = Number(su[x]) + Number(su[(x+1)]);
                     su.splice(1,1)
                 }
-                else{
+                else if(buho[x]==='-'){
                     su[x] = Number(su[x]) - Number(su[(x+1)]);
                     su.splice(1,1)
                 }

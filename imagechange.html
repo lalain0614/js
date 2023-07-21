@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="imgChnge();">이미지 바꾸기</button><br>
+    <button onclick="imgChnge_Rand();">이미지 무작위로</button><br>
+    <button onclick="imgChnge_Rand_start();">이미지 무작위로_자동시작</button><br>
+    <button onclick="imgChnge_Rand_end();">이미지 무작위로_자동끝</button><br>
+    <img id='img' src="1.PNG">
+    <script>
+        img_file=['1.png','2.png','3.png'];
+        img=document.getElementById('img');
+        i=1;
+        function imgChnge(){
+            img.src= img_file[i];
+            i++;
+            if(i>=img_file.length){
+                i=0;
+            }
+        }
+        function imgChnge_Rand(){
+            rd=Math.floor(Math.random()*3);
+            img.src=img_file[rd];
+        
+        }
+        function imgChnge_Rand_start(){
+            play=setInterval(function(){
+                rd=Math.floor(Math.random()*3);
+                img.src=img_file[rd];
+            },100);
+        }
+        function imgChnge_Rand_end(){
+            clearInterval(play);
+        };
+
+    </script>
+</body>
+</html>

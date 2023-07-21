@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+</head>
+<body>
+    <style>
+      .btn_image_bomb {
+           
+           background: url("22.jpg") no-repeat;
+           background-size: 70px 70px;
+           text-decoration: none;
+           width: 70px;
+           height: 70px;
+           border: 1px solid silver;
+           float: left;
+       }
+       .btn_image {
+           
+           text-decoration: none;
+           width: 70px;
+           height: 70px;
+           border: 1px solid silver;
+           float: left;
+       }
+       .revealed {
+           
+           text-decoration: none;
+           background: #ccc; 
+           color: black;
+           font-size: 24px;
+           text-align: center;
+           line-height: 70px;
+           width: 70px;
+           height: 70px;
+           border: 1px solid silver;
+           float: left;
+       }
+       .br{
+           content: "";
+
+           clear: both;
+
+           display: table;   
+       }
+
+    </style>
+    <script>
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        var boardSize = 10;
+        var numberOfMines = 20;
+        var board = [];
+
+        function initializeBoard() {
+            for (var i = 0; i < boardSize; i++) {
+                board[i] = [];
+                for (var j = 0; j < boardSize; j++) {
+                    board[i][j] = {
+                        isMine: false,
+                        count: 0,
+                        isRevealed: false
+                    };
+                }
+            }
+        }
+
+        function placeMines() {
+            var minesPlaced = 0;
+            while (minesPlaced < numberOfMines) {
+                var row = getRandomInt(0, boardSize - 1);
+                var col = getRandomInt(0, boardSize - 1);
+                if (!board[row][col].isMine) {
+                    board[row][col].isMine = true;
+                    minesPlaced++;
+                }
+            }
+        }
+
+
+        function calculateCounts() {
+            for (var i = 0; i < boardSize; i++) {
+                for (var j = 0; j < boardSize; j++) {
+                    if (!board[i][j].isMine) {
+                        var count = 0;
+                        for (var x = -1; x <= 1; x++) {
+                            for (var y = -1; y <= 1; y++) {
+                                if (i + x >= 0 && i + x < boardSize && j + y >= 0 && j + y < boardSize) {
+                                    if (board[i + x][j + y].isMine) {
+                                        count++;
+                                    }
+                                }
+                            }
+                        }
+                        board[i][j].count = count;
+                    }
+                }
+            }
+        }
+
+
+        function printBoard() {
+            for (var i = 0; i < boardSize; i++) {
+                for (var j = 0; j < boardSize; j++) {
+                    var cell = board[i][j];
+                    if (cell.isRevealed) {
+                        document.write('<button class="btn_image_bomb">' + (cell.isMine ? 'X' : cell.count) + '</button>');
+                    } else {
+                        document.write('<button class="btn_image" onclick="revealCell(' + i + ',' + j + ')"></button>');
+                    }
+                }
+                document.write('<br class="br">');
+            }
+        }
+
+
+        function revealCell(row, col, event) {
+            
+            if (board[row][col].isMine) {
+                alert('게임 오버! 지뢰를 선택했습니다!');
+
+                var cellButton = document.querySelector('[onclick="revealCell(' + row + ',' + col + ')"]');
+                cellButton.style.backgroundImage = 'url("22.jpg")';
+                cellButton.style.backgroundSize = '70px 70px';
+                cellButton.innerHTML = '';
+                for (var i = 0; i < boardSize; i++) {
+                    for (var j = 0; j < boardSize; j++) {
+                        if (board[i][j].isMine) {
+                            var mineCellButton = document.querySelector('[onclick="revealCell(' + i + ',' + j + ')"]');
+                            mineCellButton.style.backgroundImage = 'url("22.jpg")';
+                            mineCellButton.style.backgroundSize = '70px 70px';
+                            mineCellButton.innerHTML = '';
+                        }
+                    }
+                }
+                var buttons = document.querySelectorAll('[onclick^="revealCell"]');
+                for (var k = 0; k < buttons.length; k++) {
+                    buttons[k].onclick = null;
+                }
+            }
+            else {
+                if (checkWin()) {
+                    alert('You win!');
+                }
+
+                var cellButton = document.querySelector('[onclick="revealCell(' + row + ',' + col + ')"]');
+
+                if (board[row][col].count === 0) {
+                    cellButton.innerHTML = '';
+                } else {
+                    cellButton.innerHTML = board[row][col].count;
+                    cellButton.classList.remove('btn_image'); 
+                }
+
+                cellButton.classList.add('revealed');
+              }
+            if (event) {
+                    event.stopPropagation();
+                    event.preventDefault();
+            }
+         }
+
+        function checkWin() {
+            for (var i = 0; i < boardSize; i++) {
+                for (var j = 0; j < boardSize; j++) {
+                    if (!board[i][j].isMine && !board[i][j].isRevealed) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        function startGame() {
+            initializeBoard();
+            placeMines();
+            calculateCounts();
+            printBoard();
+        }
+        startGame();
+    </script>
+</body>
+</html>
