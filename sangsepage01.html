@@ -20,14 +20,14 @@
     .bt2{
         width: 20px;
         height: 20px;
-        background-color: rgb(163, 16, 16);
+        background-color: rgb(180, 88, 88);
         color: aliceblue;
         border-radius: 5px;
         border: none;
         font-size: 15px;
     }
     .bt2:hover{
-        background-color: rgb(19, 94, 42);
+        background-color: rgb(104, 145, 116);
         color: aliceblue;
         
         border: none;
@@ -50,8 +50,25 @@
         text-align: center;
         border: none;
     }
+    .Bt3{
+        background-color: rgb(104, 145, 116);
+        color: aliceblue;
+        width: 120px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .Bt3:hover{
+        background-color: rgb(180, 88, 88);
+        color: aliceblue;
+        
+        border: none;
+    }
 </style>
 <body>
+    <hr color="#F8E0E0">
     <table align="center" border="0">
         <tr>
             <td colspan="2" align="left" class="bt">
@@ -65,11 +82,11 @@
                 </div>
             </td>
             <td align="right" class="bt1">
-                <br><br>
                 판매가 :&nbsp;&nbsp;<span id="productPrice"></span>
                 <br><br>수량 :&nbsp;<button id="bookminus" class="bt2" onclick="decreaseQuantity()">-</button>
                 <input type="text" id="bookinput" class="inputbox" value="0"><button id="bookplus" class="bt2" onclick="increaseQuantity()">+</button>
                 <br><br>&nbsp;합계 :&nbsp;<input type="text" id="total" class="inputbox2" readonly>원
+                <br><br><button class="Bt3" id="shoppingbasket">C A R T</button>
             </td>
         </tr>
         <tr>
@@ -276,7 +293,7 @@
                         imageSrc2 = "grain02.jpg";
                         break;         
                     case 'melamine':
-                        title = "[다이소]돔뚜껑곡물저장용기";
+                        title = "[다이소]디즈니_핍앤데일_멜라닌";
                         productPrice = 2000;
                         imageSrc1 = "melamine01.gif";
                         imageSrc2 = "melamine02.jpg";
@@ -310,6 +327,55 @@
         }
 
         displayImageInfo();
+        document.getElementById('shoppingbasket').addEventListener('click', function() {
+            addToCart();
+        });
+
+        function updateTotalPrice() {
+            var quantity = parseInt(quantityInput.value);
+            var totalPrice = quantity * productPrice;
+            totalPriceInput.value = totalPrice;
+        }
+
+        function increaseQuantity() {
+            var quantity = parseInt(quantityInput.value);
+            quantityInput.value = quantity + 1;
+            updateTotalPrice();
+        }
+
+        function decreaseQuantity() {
+            var quantity = parseInt(quantityInput.value);
+            if (quantity > 0) {
+                quantityInput.value = quantity - 1;
+                updateTotalPrice();
+            }
+        }
+
+        function addToCart() {
+            var imageInfo = sessionStorage.getItem('imageInfo');
+            var productTitle = document.getElementById('productTitle').innerText;
+            var productPrice = parseInt(document.getElementById('productPrice').innerText);
+            var quantity = parseInt(quantityInput.value);
+            var totalPrice = quantity * productPrice;
+
+            var newItem = {
+                imageSrc: imageInfo + ".gif",
+                title: productTitle,
+                price: productPrice,
+                quantity: quantity,
+                totalPrice: totalPriceInput.value
+            };
+            if(quantity>0){
+            var cartItems = sessionStorage.getItem('cartItems') ? JSON.parse(sessionStorage.getItem('cartItems')) : [];
+            cartItems.push(newItem);
+
+            sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+            window.location.href = "cart.html";
+            }
+            else{
+                window.location.href = "cart.html";
+                }
+            }
     </script>
 </body>
 </html>

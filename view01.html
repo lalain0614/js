@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input"> <button onclick="calc();">계~산</button><br>
+    <input type="text" id="output"><br>
+    <script>
+        function calc(){
+            var input = document.getElementById('input');
+            var output = document.getElementById('output');
+            var str = input.value;
+            //match
+            su = str.match(/\d+/g);
+            buho = str.match(/\D+/g)
+            console.log(su);
+            console.log(buho);
+            var chk = str.search(/\*|\//);
+            if(chk>0){
+                for(i=0;i<buho.length;i++){
+                    if(buho[i] == '*'){
+                        su[i] = su[i] * su[i+1];
+                        su.splice(i+1,1);
+                        buho.splice(i,1);
+                        console.log(su);
+                        console.log(buho);
+                    }
+                    else if(buho[i] == '/'){
+                        su[i] = su[i] * su[i+1];
+                        su.splice(i+1,1);
+                        buho.splice(i,1);
+                        console.log(su);
+                        console.log(buho);
+                    }
+                }
+            }
+            var x = 0;
+            while(true){
+                if(buho[x]==='+'){
+                    su[x] = Number(su[x]) + Number(su[(x+1)]);
+                    su.splice(1,1)
+                }
+                else{
+                    su[x] = Number(su[x]) - Number(su[(x+1)]);
+                    su.splice(1,1)
+                }
+                buho.shift();
+                if(su.length <2){
+                    break;
+                }
+            }
+            output.value = su;
+        }
+        
+        
+    </script>
+</body>
+</html>

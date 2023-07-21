@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니</title>
+</head>
+<style>
+    .product-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .product-image {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    .product-name {
+        font-weight: bold;
+    }
+
+    .product-price {
+        margin-left: auto;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #d6bd97;
+        color: rgba(90, 57, 18, 0.788);
+    }
+
+    .reset-button-container {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+    .reset-button-container2{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .cartstyle{
+        
+        color: rgba(117, 75, 24, 0.432);
+    }
+    .reset-button{
+        margin-left: 10px;
+        width: 100px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        background-color: rgba(172, 133, 122, 0.897);
+        color: rgba(255, 242, 201, 0.986);
+        font-size: 20px;
+        font-weight: 550;
+    }
+    .reset-button:hover{
+       background-color: #dac19d;
+       color:rgba(128, 100, 92, 0.897);
+       font-weight: 550;
+    }
+</style>
+<body>
+    <hr color="#F8E0E0">
+    <h1 class="cartstyle">shopping basket</h1>
+
+    <table>
+       
+        <thead>
+            <tr>
+                <th>이미지</th>
+                <th>상품명</th>
+                <th>가격</th>
+                <th>수량</th>
+            </tr>
+        </thead>
+        <tbody id="cartItems">
+        </tbody>
+    </table>
+
+    <div class="reset-button-container2">
+        <p>총합: <span id="totalPrice2"></span>원</p><br><br>
+        
+    </div>
+    <div class="reset-button-container2">
+        <button id="resetButton" onclick="resetCart()" class="reset-button">초기화</button>
+        <button id="calculate" class="reset-button" onclick="on_calculate()">계산</button>
+    </div>
+    <script>
+        document.getElementById("calculate").addEventListener('click',on_calculate);
+       
+        function loadCartItems() {
+            var cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+            var cartItemsContainer = document.getElementById('cartItems');
+            var totalPriceElement = document.getElementById('totalPrice2');
+            var total = 0;
+
+            if (cartItems && cartItemsContainer && totalPriceElement) {
+                cartItemsContainer.innerHTML = '';
+
+                var uniqueItems = removeDuplicates(cartItems, 'title');
+
+                for (var i = 0; i < uniqueItems.length; i++) {
+                    var product = uniqueItems[i];
+
+                    var row = document.createElement('tr');
+
+                    var imageCell = document.createElement('td');
+                    var image = document.createElement('img');
+                    image.className = 'product-image';
+                    image.src = product.imageSrc;
+                    imageCell.appendChild(image);
+
+                    var nameCell = document.createElement('td');
+                    nameCell.innerText = product.title;
+
+                    var priceCell = document.createElement('td');
+                    priceCell.innerText = product.price + '원';
+
+                    var quantityCell = document.createElement('td');
+                    quantityCell.innerText = getProductQuantity(cartItems, product.title);
+
+                    row.appendChild(imageCell);
+                    row.appendChild(nameCell);
+                    row.appendChild(priceCell);
+                    row.appendChild(quantityCell);
+
+                    cartItemsContainer.appendChild(row);
+
+                    total += product.price * getProductQuantity(cartItems, product.title);
+                }
+
+                totalPriceElement.innerText = total;
+            } else {
+                console.log("Cart items not found.");
+            }
+        }
+
+        function removeDuplicates(array, key) {
+            return array.filter((obj, index, self) =>
+                index === self.findIndex(item => item[key] === obj[key])
+            );
+        }
+
+        function getProductQuantity(cartItems, title) {
+            var quantity = 0;
+
+            for (var i = 0; i < cartItems.length; i++) {
+                if (cartItems[i].title === title) {
+                    quantity += cartItems[i].quantity;
+                }
+            }
+
+            return quantity;
+        }
+
+        function resetCart() {
+            sessionStorage.removeItem('cartItems');
+            loadCartItems();
+            location.reload();
+        }
+
+        loadCartItems(); 
+        
+        var isCalculated = false;
+
+    function on_calculate() {
+        var totalPrice = document.getElementById("totalPrice2").innerText;
+        if (isCalculated) {
+            return;
+        }
+        if (totalPrice === "") {
+            alert("장바구니가 비었습니다.");
+        } else {
+            alert("결제 금액은 " + totalPrice + "원 입니다.");
+        }
+        isCalculated = true;
+        document.getElementById("calculate").removeEventListener('click', on_calculate);
+    }
+
+    </script>
+</body>
+</html>

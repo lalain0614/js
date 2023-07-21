@@ -13,6 +13,18 @@
         font-size: 40px;
         border-radius: 30px;
         border: none;
+        object-fit: cover;
+    }
+    .Bt2{
+        display: inline-block;
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s;
+    }
+    .Bt2:hover {
+      transform: scale(1.2);
     }
     .bt{
         background-color: rgb(255, 255, 255);
@@ -20,10 +32,10 @@
     }
 </style>
 <body>
-
+    <hr color="#F8E0E0">
     <table align="center">
         <tr>
-            <td align="center"><button id="kid" class="Bt" onclick="navigateToNextPage('kid')"><img src="kid.gif"></button></td>
+            <td align="center"><button id="kid" class="Bt" onclick="navigateToNextPage('kid')"><img src="kid.gif" art="Bt2"></button></td>
             <td align="center"><button id="little" class="Bt" onclick="navigateToNextPage('little')"><img src="little.gif"></td>
             <td align="center"><button id="jeob" class="Bt" onclick="navigateToNextPage('jeob')"><img src="jeob.gif"></td>
         </tr>

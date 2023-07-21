@@ -1,118 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: rotateX(180deg);
+    }
+  </style>
 </head>
-<style>
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60vh; 
-}
-
-</style>
 <body>
-    <table  align="center">
-        <tr >
-            <div class="container">
-            <img src="banner01.jpg" alt="banner01.jpg" id="bn_Slide" >
-            </div>
-        </tr>
-        <tr >
-
-
-            <td><img src="note01.png" alt="note01.png" id="Slide" onclick="navigateToNextPage(move)" ></td>
-            <td><img src="pen.png" alt="pen.png" id="Slide1" onclick="navigateToNextPage(move1)"></td>
-            <td><img src="book.png" alt="book.png" id="Slide2" onclick="navigateToNextPage(move2)"></td>
-            <td><img src="bubble.gif" alt="bubble.gif" id="Slide3" onclick="navigateToNextPage(move3)"></td>
-            <td><img src="basket.gif" alt="basket.gif" id="Slide4" onclick="navigateToNextPage(move4)"></td>
-            
-        </tr>
-        <script>
-
-            xx=["note01","pen","book","bubble","basket"];
-            var move=xx[0]
-            var move1=xx[1]
-            var move2=xx[2]
-            var move3=xx[3]
-            var move4=xx[4]
-
-            
-            
-            let bnslide = document.getElementById("bn_Slide");
-            let bnimgArr = ["banner01.jpg","banner02.jpg","banner03.jpg","banner04.jpg"];
-
-            setInterval(()=>{
-                let ranNum = Math.floor(Math.random() * imgArr.length);
-                bnslide.src= bnimgArr[ranNum];
-            },2000);
-        
-            let slide = document.getElementById("Slide");
-            let imgArr = ["note01.png","little.gif","note03.png"];
-            let btnArr=["note01","little","note03"];
-        
-            setInterval(()=>{
-            let ranNum = Math.floor(Math.random() * imgArr.length);
-                slide.src= imgArr[ranNum];
-                move=btnArr[ranNum];
-            },2000);
-            
-
-            let slide1 = document.getElementById("Slide1");
-            let imgArr1 = ["pen.png","silicon.gif","pin.png"];
-            let btnArr1=["pen","silicon","pin"];
-
-        
-            setInterval(()=>{
-            let ranNum1 = Math.floor(Math.random() * imgArr1.length);
-                slide1.src= imgArr1[ranNum1];
-                move1=btnArr1[ranNum1];
-            },2000);
-            
-            let slide2 = document.getElementById("Slide2");
-            let imgArr2 = ["book.png","boong.png","clip.png"];
-            let btnArr2=["book","boong","clip"];
-        
-            setInterval(()=>{
-            let ranNum2 = Math.floor(Math.random() * imgArr2.length);
-                slide2.src= imgArr2[ranNum2];
-                move2=btnArr2[ranNum2];
-            },2000);
-
-
-            let slide3 = document.getElementById("Slide3");
-            let imgArr3 = ["bubble.gif","kid.gif","perioe.gif"];
-            let btnArr3=["bubble","boong","clip"];
-
-            setInterval(()=>{
-            let ranNum3 = Math.floor(Math.random() * imgArr3.length);
-                slide3.src= imgArr3[ranNum3];
-                move3=btnArr3[ranNum3];
-            },2000);
-
-            let slide4 = document.getElementById("Slide4");
-            let imgArr4 = ["basket.gif","kakao.gif","knife.gif"];
-            let btnArr4=["basket","kakao","knife"];
-
-
-            setInterval(()=>{
-            let ranNum4 = Math.floor(Math.random() * imgArr4.length);
-                slide4.src= imgArr4[ranNum4];
-                move4=btnArr4[ranNum4];
-            },2000);
-
-
-            
-            function navigateToNextPage(buttonId) {
-            sessionStorage.setItem('imageInfo', buttonId);
-            window.location.href = "sangsepage01.html";
-            }
-
-            </script>            
-
-    </table>
+  <div class="box"></div>
 </body>
 </html>
